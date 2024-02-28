@@ -1,13 +1,35 @@
 # docker-swarm-demo
 
 ### Prérequis:
-- Des instances AWS EC2 avec au moins 2 cœurs CPU (comme indiqué).
+- 3 instances AWS EC2 : Pour le master 2 cœurs CPU , et 1CPU pour chacun des workers.
 - Docker installé sur chaque instance.
 - Les instances doivent être accessibles via SSH.
 
 ### Configuration de l'Environnement:
 1. Connectez-vous à votre instance master via SSH.
 2. Passez en superutilisateur avec `sudo -s` pour exécuter des commandes avec les privilèges root.
+
+
+# Sur le Nœud Manager (Master):
+```bash
+sudo hostnamectl set-hostname master
+exec bash
+```
+
+# Sur le Worker 1:
+```bash
+sudo hostnamectl set-hostname worker1
+exec bash
+```
+
+# Sur le Worker 2:
+```bash
+sudo hostnamectl set-hostname worker2
+exec bash
+```
+
+Après avoir exécuté `exec bash`, le nouvel invite de commande devrait refléter le nom d'hôte mis à jour.
+
 
 ### Initialisation de Docker Swarm:
 1. Sur le nœud master, initialisez le swarm avec la commande suivante:
